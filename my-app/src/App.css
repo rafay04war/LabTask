@@ -253,6 +253,10 @@
   background: #ececec;
 }
 
+.toggle-btn {
+  max-width: 460px;
+}
+
 .message {
   width: 100%;
   max-width: 460px;
