@@ -14,9 +14,11 @@ function App() {
   const [password, setPassword] = useState('')
   const [rememberMe, setRememberMe] = useState(false)
 
-
   // Message shown on screen
   const [message, setMessage] = useState('')
+
+  // Controls whether the LetConstDemo component is shown or hidden
+  const [showDemo, setShowDemo] = useState(true)
 
   // Show a welcome message
   const showMessage = () => {
@@ -31,7 +33,6 @@ function App() {
 
   return (
     <div className="page">
-
       {/* Right side: form + message button + demo */}
       <main className="main">
         <SignUpForm
@@ -48,7 +49,17 @@ function App() {
 
         {message && <p className="message">{message}</p>}
 
-        <LetConstDemo />
+        {/* Button to show/hide the LetConstDemo component */}
+        <button
+          type="button"
+          className="message-btn toggle-btn"
+          onClick={() => setShowDemo(!showDemo)}
+        >
+          {showDemo ? 'Hide Demo' : 'Show Demo'}
+        </button>
+
+        {/* Conditionally render the demo — removed from DOM when hidden */}
+        {showDemo && <LetConstDemo />}
       </main>
     </div>
   )
